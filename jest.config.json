@@ -1,0 +1,25 @@
+{
+  "preset": "ts-jest",
+  "setupFilesAfterEnv": ["./jest-setup.ts"],
+  "testEnvironment": "jsdom",
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
+  "transform": {
+    "transform_regex": ["ts-jest", { "tsconfig": "./tsconfig.json" }],
+    "\\.(css|less|scss)$": "<rootDir>/svgTransform.js",
+    "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/svgTransform.js"
+  },
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!src/**/*/*.d.ts",
+    "!src/index.tsx"
+  ],
+  "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
+  "coverageThreshold": {
+    "global": {
+      "branches": 90,
+      "functions": 90,
+      "lines": 90,
+      "statements": 90
+    }
+  }
+}
